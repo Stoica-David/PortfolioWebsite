@@ -25,13 +25,25 @@ export class PortfolioComponent implements OnInit {
   aspnet: boolean = false;
   javascript: boolean = false;
   react: boolean = false;
+  c: boolean = false;
+  cpp: boolean = false;
 
   constructor(private titleService: Title, private projectService: ProjectsService){
     this.titleService.setTitle('Stoica David Ioan - Portfolio');
   }
 
   ngOnInit(): void {
+    this.loadProjects();
     this.projects = this.projectService.GetProjects();
+  }
+
+  async loadProjects() {
+    try {
+      this.projects = await
+      this.projectService.fetchGitHubProjects();
+    } catch (error) {
+      console.error("Failed to load GitHub projects!");
+    }
   }
 
   Filter() {
@@ -73,7 +85,15 @@ export class PortfolioComponent implements OnInit {
       filterTags.push(Tag.REACT);
     }
 
-    if (this.python || this.csharp || this.java || this.angular || this.typeScript || this.nodejs || this.aspnet || this.javascript || this.react) {
+    if (this.c) {
+      filterTags.push(Tag.C);
+    }
+
+    if (this.cpp) {
+      filterTags.push(Tag.CPP);
+    }
+
+    if (this.python || this.csharp || this.java || this.angular || this.typeScript || this.nodejs || this.aspnet || this.javascript || this.react || this.c || this.cpp) {
       this.filtering = true;
     }
     else {
@@ -93,6 +113,8 @@ export class PortfolioComponent implements OnInit {
     this.nodejs = false;
     this.react = false;
     this.typeScript = false;
+    this.c = false;
+    this.cpp = false;
 
     this.filtering = false;
 

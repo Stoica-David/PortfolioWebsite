@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ProjectsService } from '../_services/projects.service';
 import { Project } from '../_models/Project';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.featuredProject = this.projectService.GetProjectById(0);
+    try
+    {
+      this.featuredProject = this.projectService.GetProjectById(0);
+    }
+    catch(error) {
+       
+    }
   }
 }
