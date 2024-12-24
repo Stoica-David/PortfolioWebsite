@@ -69,7 +69,7 @@ export class ProjectsService {
     try {
       const response = await axios.get<any[]>(reposUrl, {
         headers: {
-          Authorization: `token ${environment.githubToken}`,
+          Authorization: `token ${environment.api_key}`,
           Accept: 'application/vnd.github.v3+json'
         }
       });
@@ -95,14 +95,14 @@ export class ProjectsService {
 
         const languagesResponse = await axios.get<{ [key: string]: number }>(languages_url, {
           headers: {
-            Authorization: `token ${environment.githubToken}`
+            Authorization: `token ${environment.api_key}`
           }
         });
         const languagesData = languagesResponse.data;
 
         const readmeResponse = await axios.get<string>(`https://api.github.com/repos/${this.username}/${name}/readme`, {
           headers: {
-            Authorization: `token ${environment.githubToken}`,
+            Authorization: `token ${environment.api_key}`,
             Accept: 'application/vnd.github.v3.raw'
           }
         });
