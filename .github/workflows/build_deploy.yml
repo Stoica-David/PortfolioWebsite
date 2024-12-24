@@ -1,0 +1,55 @@
+name: Deploy static content to Pages
+  
+on: # se activeaza cand dai push pe main si trigger manual
+  push:
+    branches: ["main"]
+
+  workflow_dispatch:
+
+permissions: # permisiuni pentru github pages, template default
+  contents: read
+  pages: write
+  id-token: write
+  
+concurrency: # sa nu rulezi 2 deploy-uri in acelasi timp
+  group: "pages"
+  cancel-in-progress: false
+  
+jobs:
+  deploy: 
+    environment:
+      name: github_pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout # cloneaza repo
+        uses: actions/checkout@v4
+
+      - name: Setup Pages # configureaza gh pages
+        uses: actions/configure-pages@v5
+  
+      - name: Setup bun # ... bun
+        uses: oven-sh/setup-bun@v2
+  
+      - name: Setup node.js # ... node.js pentru ca angular nu functioneaza doar cu bun, bun nu are inca feature parity cu node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+  
+      - name: Install dependencies
+        run: bun i
+  
+      - name: Build site
+        working-directory: src/environments # da cd in folderul unde e fisierul de env, da replace la API_KEY cu valoarea din secrete, trebuie sa faci la fel pentru toate variabilele, angular skill issue. ai grija sa nu ai si numele la variabila si stringu' la fel (case sensitive) ca o sa le inlocuiasca comanda de mai jos si nu isi mai da build app :))
+        run: |
+            sed -i -e 's/API_KEY/${{secrets.API_KEY}}/g' ./environment.ts
+            bun x ng build
+
+      - name: Upload artifact # da upload la fisierele site-ului din dist/browser
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist/browser'
+  
+      - name: Deploy to GitHub Pages # deploy pe domeniu
+        id: deployment
+        uses: actions/deploy-pages@v4
