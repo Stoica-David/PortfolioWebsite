@@ -151,21 +151,38 @@ export class ProjectsService {
 
   private extractLongDescriptionAndImages(content: string): { longDescription: string; imageLinks: string[] } {
     const lines = content.split('\n');
-    const descriptionStartIndex = lines.findIndex(line => line.trim() === '') + 1;
-    const trimmedContent = lines.slice(descriptionStartIndex).join('\n').trim();
 
-    const regex = /!\[.*?\]\((.*?)\)/g;
-    let matches;
-    const imageLinks: string[] = [];
+    const relevantLines = lines.slice(1);
+    const firstHeaderIndex = relevantLines.findIndex(line => line.trim().startsWith('## '));
+    const secondHeaderIndex = relevantLines.slice(firstHeaderIndex + 1).findIndex(line => line.trim().startsWith('## '));
 
-    let longDescriptionEndIndex = trimmedContent.length;
-    while ((matches = regex.exec(trimmedContent)) !== null) {
-      imageLinks.push(matches[1]);
-      longDescriptionEndIndex = matches.index;
-      break;
+    let longDescription: string;
+    let endIndex: number;
+
+    if (firstHeaderIndex !== -1 && secondHeaderIndex !== -1) {
+        endIndex = firstHeaderIndex + 1 + secondHeaderIndex;
+        const longDescriptionLines = relevantLines.slice(firstHeaderIndex + 1, endIndex).map(line => line.trim()).filter(line => line.length > 0);
+        longDescription = longDescriptionLines.join('\n').trim();
+    } else {
+        const regex = /!\[.*?\]\((.*?)\)/g;
+        let matches;
+        let firstImageIndex = content.length;
+
+        while ((matches = regex.exec(content)) !== null) {
+            firstImageIndex = matches.index;
+            break;
+        }
+
+        longDescription = content.slice(0, firstImageIndex).trim().split('\n\n').slice(1).join('\n\n');
     }
 
-    const longDescription = trimmedContent.slice(0, longDescriptionEndIndex).trim();
+    const imageLinks: string[] = [];
+    let matchesImage;
+    const regexImages = /!\[.*?\]\((.*?)\)/g;
+
+    while ((matchesImage = regexImages.exec(content)) !== null) {
+        imageLinks.push(matchesImage[1]);
+    }
 
     return { longDescription, imageLinks };
   }
