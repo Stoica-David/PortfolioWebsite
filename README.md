@@ -22,27 +22,27 @@ You can view the live demo of my portfolio at the following link: [My Portfolio 
 To build and run this project locally, follow these steps:
 
 1. **Clone the Repository**:
-git clone https://github.com/Stoica-David/PortfolioWebsite.git
+`git clone https://github.com/Stoica-David/PortfolioWebsite.git`
 
-cd PortfolioWebsite
+`cd PortfolioWebsite`
 
 
 2. **Install Dependencies**:
 Make sure you have Node.js installed (preferably 18.10.0). Then run:
 
-npm install -g @angular/cli@15
+`npm install -g @angular/cli@15`
 
 3. **Run the Application**:
 Start the development server:
 
-ng serve
+`ng serve`
 
 Open your browser and navigate to `http://localhost:4200//PortfolioWebsite` to view your portfolio.
 
 4. **Build for Production**:
 To create a production build, run:
 
-ng build --prod
+`ng build --prod`
 
 The output will be in the `dist/` directory.
 
