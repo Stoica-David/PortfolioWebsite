@@ -32,6 +32,8 @@ Make sure you have Node.js installed (preferably 18.10.0). Then run:
 
 `npm install -g @angular/cli@15`
 
+NOTE: In order to be able to fetch projects using the GitHub REST API, you will have to define a `environment.development.ts` file in the `environments` folder, there you will have to define an object similar to the one in `environment.ts`, where instead of the `API_KEY` placeholder, you will have to insert an actual API key from GitHub.
+
 3. **Run the Application**:
 Start the development server:
 
