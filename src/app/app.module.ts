@@ -18,6 +18,8 @@ import { CollapseModule } from 'ngx-bootstrap/collapse'
 import { FormsModule } from '@angular/forms';
 import { AccordionModule } from 'ngx-bootstrap/accordion'
 
+import { NgOptimizedImage } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,8 @@ import { AccordionModule } from 'ngx-bootstrap/accordion'
     CarouselModule.forRoot(),
     CollapseModule.forRoot(),
     AccordionModule.forRoot(),
-    FormsModule
+    FormsModule,
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]
