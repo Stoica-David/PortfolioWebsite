@@ -122,6 +122,22 @@ export class ProjectsService {
             .filter(tag => tag !== null) as Tag[]
         };
 
+        if (project.tags.includes(Tag.TYPESCRIPT)) {
+          project.tags.push(Tag.ANGULAR);
+        }
+
+        if (project.pictures.length === 0) {
+          project.pictures.push('assets/Image1.jpg');
+        }
+        
+        if (project.pictures.length === 1) {
+          project.pictures.push('assets/Image2.jpg');
+        }
+        
+        if (project.pictures.length === 2) {
+          project.pictures.push('assets/Image3.jpg');
+        }
+
         projectList.push(project);
       }
 
