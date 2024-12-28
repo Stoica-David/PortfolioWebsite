@@ -19,7 +19,7 @@ You can view the live demo of my portfolio at the following link: [My Portfolio 
 - Bootstrap (for styling)
 
 ## Build Instructions
-To build and run this project locally, follow these steps:
+To build and run this project local ly, follow these steps:
 
 1. **Clone the Repository**:
 `git clone https://github.com/Stoica-David/PortfolioWebsite.git`
