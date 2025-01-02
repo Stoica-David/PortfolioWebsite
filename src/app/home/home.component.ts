@@ -11,6 +11,7 @@ import { Project } from '../_models/Project';
 export class HomeComponent implements OnInit {
   featuredProject = {} as Project;
   projects = {} as Project[];
+  areProjectsLoaded: boolean = false;
 
   constructor(private titleService: Title, private projectService: ProjectsService){
     this.titleService.setTitle('Stoica David Ioan - Home');
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
       this.projectService.projects = this.projects;
 
       this.featuredProject = this.projects[0];
+      this.areProjectsLoaded = true;
     } catch (error) {
       console.error("Failed to load GitHub projects!");
     }

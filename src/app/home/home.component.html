@@ -20,8 +20,14 @@
                 </div>
             </carousel>
 
-            <p class="mt-2">{{featuredProject.summary}}</p>
-            <p>Visit the Portfolio section to learn more!</p>
+            <div *ngIf="!areProjectsLoaded">
+                <p class="mt-2">Fetching projects...</p>
+            </div>
+
+            <div *ngIf="areProjectsLoaded">
+                <p class="mt-2">{{featuredProject.summary}}</p>
+                <p class="mt-2">Visit the Portfolio section to learn more!</p>
+            </div>
         </div>
     </div>
 </div>
