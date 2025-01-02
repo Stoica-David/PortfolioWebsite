@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
     try {
       this.projects = await
       this.projectService.fetchGitHubProjects();
+      this.projectService.projects = this.projects;
 
       this.featuredProject = this.projects[0];
     } catch (error) {

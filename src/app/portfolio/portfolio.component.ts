@@ -9,7 +9,7 @@ import { Tag } from '../_models/tag';
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.css']
 })
-export class PortfolioComponent implements OnInit {  
+export class PortfolioComponent {  
   projects = {} as Project[];
 
   isCollapsed: boolean = true;
@@ -33,17 +33,7 @@ export class PortfolioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadProjects();
     this.projects = this.projectService.GetProjects();
-  }
-
-  async loadProjects() {
-    try {
-      this.projects = await
-      this.projectService.fetchGitHubProjects();
-    } catch (error) {
-      console.error("Failed to load GitHub projects!");
-    }
   }
 
   Filter() {
