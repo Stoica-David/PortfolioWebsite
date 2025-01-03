@@ -33,7 +33,21 @@ export class PortfolioComponent {
   }
 
   ngOnInit(): void {
-    this.projects = this.projectService.GetProjects();
+    this.loadProjects();
+  }
+
+  async loadProjects() {
+    try {
+      this.projects = this.projectService.GetProjects()
+
+      if (this.projects.length === 0) {
+        this.projects = await
+        this.projectService.fetchGitHubProjects();
+        this.projectService.projects = this.projects;  
+      }
+    } catch (error) {
+      console.error("Failed to load GitHub projects!");
+    }
   }
 
   Filter() {
