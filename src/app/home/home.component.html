@@ -1,33 +1,51 @@
 <div class="container">
-    <div class="row">
-        <div class="col-lg shadow border m-1">
-            <div class="text-center">
-                <h2>About Me</h2>
-                <img priority ngSrc="assets/PROFILEPIC.jpg" alt="profile picture" width="256" height="256" class="rounded-circle">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer turpis lacus, faucibus at faucibus et, facilisis sit amet lacus. Sed interdum a felis quis vestibulum. Aliquam feugiat condimentum massa, sed pellentesque tellus faucibus finibus. Vivamus nec mauris nisi. Fusce justo magna, tempus sit amet sem et, aliquet auctor nunc. Maecenas at justo eu lectus congue dapibus vel in felis. Aenean pulvinar malesuada augue, et varius metus dictum ac. Praesent euismod cursus nisl. Aenean ornare magna elit, in tempus nisl aliquam ac. </p>
-            </div>
-        </div>
-
-        <div class="col-lg shadow border m-1">
-            <div class="text-center">
-                <h2>Featured Project</h2>
-                <h4>{{featuredProject.name}}</h4>
-            </div>
-
-            <carousel>
-                <div *ngFor="let picture of featuredProject.pictures">
-                    <slide><img src="{{picture}}" alt="slide" style="display:block; width: 100%;"></slide>
-                </div>
-            </carousel>
-
-            <div *ngIf="!areProjectsLoaded">
-                <p class="mt-2">Fetching projects...</p>
-            </div>
-
-            <div *ngIf="areProjectsLoaded">
-                <p class="mt-2">{{featuredProject.summary}}</p>
-                <p class="mt-2">Visit the Portfolio section to learn more!</p>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-lg shadow border m-1">
+      <div class="text-center">
+        <h2>About Me</h2>
+        <img
+          priority
+          ngSrc="assets/PROFILEPIC.jpg"
+          alt="profile picture"
+          width="256"
+          height="256"
+          class="rounded-circle"
+        />
+        <p>
+          Final-year Computer Science undergraduate passionate about building
+          robust software systems. Versatile developer proficient in C++ and
+          Python, with hands-on experience in machine learning applications.
+          Quick learner adept at solving complex technical challenges through
+          clean, maintainable code and collaborative problem-solving.
+        </p>
+      </div>
     </div>
+
+    <div class="col-lg shadow border m-1">
+      <div class="text-center">
+        <h2>Featured Project</h2>
+        <h4>{{ featuredProject.name }}</h4>
+      </div>
+
+      <carousel>
+        <div *ngFor="let picture of featuredProject.pictures">
+          <slide
+            ><img
+              src="{{ picture }}"
+              alt="slide"
+              style="display: block; width: 100%"
+          /></slide>
+        </div>
+      </carousel>
+
+      <div *ngIf="!areProjectsLoaded">
+        <p class="mt-2">Fetching projects...</p>
+      </div>
+
+      <div *ngIf="areProjectsLoaded">
+        <p class="mt-2">{{ featuredProject.summary }}</p>
+        <p class="mt-2">Visit the Portfolio section to learn more!</p>
+      </div>
+    </div>
+  </div>
 </div>

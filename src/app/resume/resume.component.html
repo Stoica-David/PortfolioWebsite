@@ -1,105 +1,147 @@
 <div class="container text-center">
-    <button (click)="DownloadFile()" class="btn btn-primary mb-5 shadow border">Download PDF Resume</button>
+  <button (click)="DownloadFile()" class="btn btn-primary mb-5 shadow border">
+    Download PDF Resume
+  </button>
 
-    <div class="pb-2">
-        <accordion [isAnimated]="true" class="shadow">
-            <accordion-group [(isOpen)]="isWorkExperienceOpen">
-                <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
-                    <div style="visibility: hidden;">></div>
-                    <div class="btn-link">Work Experience</div>
+  <div class="pb-2">
+    <accordion [isAnimated]="true" class="shadow">
+      <accordion-group [(isOpen)]="isWorkExperienceOpen">
+        <button
+          class="btn btn-block justify-content-between d-flex w-100"
+          accordion-heading
+        >
+          <div style="visibility: hidden">></div>
+          <div class="btn-link">Work Experience</div>
 
-                    <div style="width: 10.95px;">
-                        <div *ngIf="!isWorkExperienceOpen" style="color:white;">></div>
-                        <div *ngIf="isWorkExperienceOpen" style="color:white;">v</div>
-                    </div>
-                </button>
+          <div style="width: 10.95px">
+            <div *ngIf="!isWorkExperienceOpen" style="color: white">></div>
+            <div *ngIf="isWorkExperienceOpen" style="color: white">v</div>
+          </div>
+        </button>
 
-                <div style="text-align: left;">
-                    <h2 class="mb-0">Intern Software Engineer</h2>
-                    <h3 class="text-primary">Magic Lane</h3>
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li>Nunc nec congue turpis.</li>
-                        <li>Suspendisse vulputate vitae turpis non rhoncus.</li>
-                        <li>Nullam ut metus eget libero efficitur maximus ut vitae purus.</li>
-                        <li>In non est molestie mauris dictum bibendum et nec lacus.</li>
-                    </ul>
-                </div>
-                <hr>
-                <div style="text-align: left;">
-                    <h2 class="mb-0">Software Engineer</h2>
-                    <h3 class="text-primary">Magic Lane</h3>
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li>Nunc nec congue turpis.</li>
-                        <li>Suspendisse vulputate vitae turpis non rhoncus.</li>
-                        <li>Nullam ut metus eget libero efficitur maximus ut vitae purus.</li>
-                        <li>In non est molestie mauris dictum bibendum et nec lacus.</li>
-                    </ul>
-                </div>
-            </accordion-group>
-    
-            <accordion-group [(isOpen)]="isEducationOpen">
-                <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
-                    <div style="visibility: hidden;">></div>
-                    <div class="btn-link">Education</div>
+        <div style="text-align: left">
+          <h2 class="mb-0">Support Programmer</h2>
+          <h3 class="text-primary">Magic Lane</h3>
+          <ul>
+            <li>
+              Designed and implemented neural networks for street address
+              normalization and language detection, using TensorFlow.
+            </li>
+            <li>
+              Developed a Python-based testing tool to ensure the reliability of
+              the deep learning tool.
+            </li>
+            <li>
+              Improved a deep learning tool's architecture, data handling
+              efficiency, and neural network export capabilities.
+            </li>
+            <li>
+              Gained proficiency in Python libraries such as Pandas, NumPy, and
+              Scikit-learn.
+            </li>
+          </ul>
+        </div>
+        <hr />
+        <div style="text-align: left">
+          <h2 class="mb-0">Software Development Intern</h2>
+          <h3 class="text-primary">Magic Lane</h3>
+          <ul>
+            <li>
+              Developed a Chess game in C++ with a GUI using Qt, applying clean
+              code principles and design patterns.
+            </li>
+            <li>
+              Implemented unit testing using Google Test to ensure code
+              reliability.
+            </li>
+            <li>
+              Studied and applied SOLID principles to improve software design
+              and maintainability.
+            </li>
+            <li>
+              Explored machine learning basics and beginner statistics concepts
+              using the python programming language.
+            </li>
+          </ul>
+        </div>
+      </accordion-group>
 
-                    <div style="width: 10.95px;">
-                        <div *ngIf="!isEducationOpen" style="color:white;">></div>
-                        <div *ngIf="isEducationOpen" style="color:white;">v</div>
-                    </div>
-                </button>
-    
-                <div style="text-align: left;">
-                    <h2 class="mb-0">Bachelor's of Science in Computer Science'</h2>
-                    <h3 class="text-primary">University of Transilvania</h3>
-                    <ul>
-                        <li>Graduated from University of Transilvania in June 2025</li>
-                        <li>Graduated with an average of 9.66</li>
-                        <li>Participated in extracurricular activities such as hackathons.</li>
-                    </ul>
-                </div>
-            </accordion-group>
-    
-            <accordion-group [(isOpen)]="isSkillsOpen">
-                <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
-                    <div style="visibility: hidden;">></div>
-                    <div class="btn-link">Skills</div>
+      <accordion-group [(isOpen)]="isEducationOpen">
+        <button
+          class="btn btn-block justify-content-between d-flex w-100"
+          accordion-heading
+        >
+          <div style="visibility: hidden">></div>
+          <div class="btn-link">Education</div>
 
-                    <div style="width: 10.95px;">
-                        <div *ngIf="!isSkillsOpen" style="color:white;">></div>
-                        <div *ngIf="isSkillsOpen" style="color:white;">v</div>
-                    </div>
-                </button>
-    
-                <div class="row" style="text-align: left;">
-                    <div class="col">
-                        <h3>Programming Languages:</h3>
-                        <ul>
-                            <li>C++</li>
-                            <li>Python</li>
-                            <li>C#</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <h3>Frameworks:</h3>
-                        <ul>
-                            <li>Angular</li>
-                            <li>Svelte</li>
-                            <li>ASP.NET</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <h3>Other Skills:</h3>
-                        <ul>
-                            <li>Cient-Server Architecture</li>
-                            <li>Source Control via Git</li>
-                            <li>MVC Architecture</li>
-                            <li>Design Patterns</li>
-                        </ul>
-                    </div>
-                </div>
-            </accordion-group>
-        </accordion>
-    </div>
+          <div style="width: 10.95px">
+            <div *ngIf="!isEducationOpen" style="color: white">></div>
+            <div *ngIf="isEducationOpen" style="color: white">v</div>
+          </div>
+        </button>
+
+        <div style="text-align: left">
+          <h2 class="mb-0">Bachelor's of Science in Computer Science'</h2>
+          <h3 class="text-primary">University of Transilvania</h3>
+          <ul>
+            <li>Graduated from University of Transilvania in June 2025</li>
+            <li>Graduated with an average of TBD</li>
+            <li>
+              Participated in extracurricular activities such as hackathons and
+              conferences.
+            </li>
+          </ul>
+        </div>
+      </accordion-group>
+
+      <accordion-group [(isOpen)]="isSkillsOpen">
+        <button
+          class="btn btn-block justify-content-between d-flex w-100"
+          accordion-heading
+        >
+          <div style="visibility: hidden">></div>
+          <div class="btn-link">Skills</div>
+
+          <div style="width: 10.95px">
+            <div *ngIf="!isSkillsOpen" style="color: white">></div>
+            <div *ngIf="isSkillsOpen" style="color: white">v</div>
+          </div>
+        </button>
+
+        <div class="row" style="text-align: left">
+          <div class="col">
+            <h3>Programming Languages:</h3>
+            <ul>
+              <li>C++</li>
+              <li>Python</li>
+              <li>C#</li>
+              <li>TypeScript</li>
+              <li>SQL</li>
+              <li>HTML/CSS</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>Frameworks:</h3>
+            <ul>
+              <li>Qt</li>
+              <li>TensorFlow</li>
+              <li>Angular</li>
+              <li>WPF</li>
+              <li>PyTorch</li>
+              <li>Svelte</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>Other Skills:</h3>
+            <ul>
+              <li>Cient-Server Architecture</li>
+              <li>Source Control via Git</li>
+              <li>MVC Architecture</li>
+              <li>Design Patterns</li>
+            </ul>
+          </div>
+        </div>
+      </accordion-group>
+    </accordion>
+  </div>
 </div>
