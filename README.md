@@ -54,6 +54,3 @@ The output will be available in the **`dist/`** directory.
 1. 📖 Angular Documentation: [Angular Docs](https://v15.angular.io/docs)
 2. 📝 Bulldogjob: [How to write a good README](https://bulldogjob.com/readme/how-to-write-a-good-readme-for-your-github-project)
 3. 🔍 GitHub API Documentation: [GitHub API Docs](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28)
-
----
-💻 Created with passion by **[Your Name]** ✨ *(replace with your details)*
